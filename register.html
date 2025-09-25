@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Register - CollegeEvents</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, white 0%, white 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      color: #1f2937;
+    }
+
+    .register-container {
+      background: white;
+      padding: 3rem 2.5rem;
+      border-radius: 16px;
+      box-shadow: 0 20px 40px lightgray;
+      width: 100%;
+      max-width: 420px;
+      text-align: center;
+    }
+
+    h2 {
+      margin-bottom: 1.8rem;
+      font-weight: 700;
+      font-size: 2.4rem;
+      color: black;
+      user-select: none;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.3rem;
+    }
+
+    input {
+      padding: 0.85rem 1rem;
+      font-size: 1rem;
+      border-radius: 8px;
+      border: 1.8px solid #ddd;
+      transition: border-color 0.3s ease;
+      outline-offset: 3px;
+    }
+
+    input:focus {
+      border-color: #f97316;
+      outline: none;
+      box-shadow: 0 0 8px rgb(249 115 22 / 0.5);
+    }
+
+    button {
+      background-color: #f97316;
+      color: white;
+      font-weight: 700;
+      padding: 1rem 0;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      box-shadow: 0 8px 20px rgb(249 115 22 / 0.4);
+      user-select: none;
+    }
+
+    button:hover,
+    button:focus {
+      background-color: #ea580c;
+      transform: translateY(-3px);
+      outline: none;
+      box-shadow: 0 12px 25px rgb(234 88 12 / 0.6);
+    }
+
+    .login-link {
+      margin-top: 1.6rem;
+      font-size: 0.95rem;
+      color: #6b7280;
+    }
+
+    .login-link a {
+      color: #f97316;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    .login-link a:hover,
+    .login-link a:focus {
+      color: #ea580c;
+      outline: none;
+      text-decoration: underline;
+    }
+
+    @media (max-width: 480px) {
+      .register-container {
+        padding: 2rem 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  
+  <br><br>
+
+  <div class="register-container">
+    <h2>Create Your Account</h2>
+    <form action="#" method="POST" novalidate>
+      <input type="text" name="fullname" placeholder="Full Name" required autocomplete="name" />
+      <input type="email" name="email" placeholder="Email Address" required autocomplete="email" />
+      <input type="password" name="password" placeholder="Password" required autocomplete="new-password" />
+      <input type="password" name="confirm_password" placeholder="Confirm Password" required autocomplete="new-password" />
+      <button type="submit">Register</button>
+    </form>
+    <p class="login-link">
+      Already have an account? <a href="login.html">Login here</a><br><a href="mainfoder.html">HOME</a>
+    </p>
+  </div>
+
+    
+
+</body>
+</html>

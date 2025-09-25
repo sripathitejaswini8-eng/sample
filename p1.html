@@ -1,277 +1,339 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>College Event Management System</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background:white;
-            margin: 0;
-            padding: 0;
-            color: #333;
-        }
-        header {
-            background: whitesmoke;
-            color: black;
-            padding: 15px 20px;
-            text-align: center;
-        ;
-        }
-        nav {
-            margin: 25px 0;
-            text-align: center;
-            background-color: #d7fd2c;
-            font-size: 25px;
-        }
-        nav a {
-            margin: 0 50px;
-            color: #0073e6;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 15px;
-        }
-        nav a:hover {
-            text-decoration: underline;
-        }
-        .container {
-            max-width: 900px;
-            margin: 20px auto;
-            background: white;
-            padding: 20px;
-            box-shadow: 0 0 10px #ccc;
-            border-radius: 5px;
-        }
-        h2 {
-            color: #0073e6;
-        }
-        .event-list {
-            list-style: none;
-            padding: 0;
-        }
-        .event-list li {
-            background: #eeffe6;
-            margin-bottom: 10px;
-            padding: 15px;
-            border-radius: 4px;
-            border-left: 5px solid #0073e6;
-        }
-        form label {
-            display: block;
-            margin: 10px 0 5px;
-        }
-        form input, form select, form textarea {
-            width: 100%;
-            padding: 8px;
-            box-sizing: border-box;
-        }
-        form button {
-            margin-top: 15px;
-            background: #0073e6;
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            cursor: pointer;
-            border-radius: 4px;
-            font-size: 16px;
-        }
-        form button:hover {
-            background: #005bb5;
-        }
-        footer {
-            margin-top: 40px;
-            text-align: center;
-            color: #888;
-            font-size: 14px;
-            padding: 15px 0;
-            border-top: 1px solid #ddd;
-        }
-    </style>
-    <style>
-        body {
-      font-family: Arial, sans-serif;
-      background-color: #f9f9f9;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>College Event Management</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-    .notification-box {
-      width: 400px;
-      border: 1px solid #ccc;
-      background-color: #fffbea;
-      border-radius: 6px;
-      overflow: hidden;
-      margin: 50px auto;
-      box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
-    }
-    .notification-header {
-      background-color: #ffd42a;
-      text-align: center;
-      padding: 8px;
-      font-weight: bold;
-      border-bottom: 1px solid #ccc;
-    }
-    .notification-list {
-      padding: 10px;
-    }
-    .notification-list p {
-      margin: 10px 0;
-      font-size: 14px;
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f4f4;
       color: #333;
-      border-bottom: 1px dashed #ddd;
-      padding-bottom: 5px;
+      line-height: 1.6;
     }
-    .notification-list p:last-child {
-      border-bottom: none;
+
+    /* Navbar */
+    header {
+      background-color: #003366;
+      padding: 1rem 2rem;
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }
-    </style>
 
+    header .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
+    .navbar .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .navbar nav a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    .navbar nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                  url('https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+      color: white;
+      text-align: center;
+      padding: 100px 20px;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .btn {
+      background-color: #ff6600;
+      color: white;
+      padding: 12px 24px;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: 0.3s;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .btn:hover {
+      background-color: #e65c00;
+    }
+
+    /* Events Section */
+    .events {
+      padding: 60px 20px;
+      background-color: #fff;
+      text-align: center;
+    }
+
+    .events h2 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .event-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .event-card {
+      background-color: #f9f9f9;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      overflow: hidden;
+      text-align: left;
+      transition: transform 0.3s;
+      cursor: pointer;
+    }
+
+    .event-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .event-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .event-card-content {
+      padding: 1rem;
+    }
+
+    .event-card-content h3 {
+      margin-bottom: 0.5rem;
+    }
+
+    .event-card-content p {
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+    }
+
+    .event-card-content a.btn {
+      display: inline-block;
+      padding: 8px 16px;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #003366;
+      color: white;
+      text-align: center;
+      padding: 1rem 0;
+      margin-top: 3rem;
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .navbar nav a {
+        display: block;
+        margin: 10px 0;
+      }
+    }
+
+    /* Modal Styles */
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 50;
+      left: 0;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.6);
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
+    }
+
+    .modal-content {
+      background: white;
+      border-radius: 8px;
+      max-width: 400px;
+      width: 100%;
+      padding: 2rem;
+      position: relative;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    }
+
+    .modal-content h2 {
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .modal-content input[type="text"],
+    .modal-content input[type="email"],
+    .modal-content input[type="password"],
+    .modal-content textarea {
+      width: 100%;
+      padding: 0.8rem;
+      margin: 0.5rem 0 1rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      resize: vertical;
+    }
+
+    .modal-content .btn {
+      width: 100%;
+      padding: 0.8rem;
+      border: none;
+      border-radius: 5px;
+      background-color: #003366;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .modal-content .btn:hover {
+      background-color: #0055aa;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #333;
+      cursor: pointer;
+    }
+
+    .toggle-link {
+      text-align: center;
+      margin-top: 1rem;
+      font-size: 0.9rem;
+    }
+
+    .toggle-link a {
+      color: #003366;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+
+    /* Calendar modal iframe */
+    .calendar-iframe {
+      width: 100%;
+      height: 70vh;
+      border: none;
+      border-radius: 8px;
+    }
+
+  </style>
 </head>
 <body>
 
-<header>
-    
-    <h1><b>College Event Management System</b></h1>
-</header>
-
-
-
-<div class="container">
-
-    <!-- Home Section -->
-    <section id="home">
-        
-        <img src="img1.jpeg" alt="" width="900px" height="350px" align="center">
-        <h2><u>Welcome to TKR College Events</u></h2>
-        <p>Stay updated with upcoming college events and register easily for the ones you like!</p>
-    </section>
-    <div>
-    <div class="notification-box">
-    <div class="notification-header">Notifications</div>
-    <div class="notification-list">
-      <p>NOTIFICATION FOR EY EDUNET PROGRAM</p>
-      <p>NOTIFICATION FOR SPORTS MEETS</p>
-      <p>NOTIFICATION FOR HACKTHON</p>
-      <p>NOTIFICATION FOR ROBOTICS CLUB</p>
-      <p>NOTIFICATION FOR TRADITIONAL DAY</p>
+  <!-- Navbar -->
+  <header>
+    <div class="navbar">
+      <div class="logo"> TKR College Events...!</div>
+      <nav>
+        <a onclick="scrollToSection('events')">Events</a>
+        <a onclick="openModal('loginModal')">Login/Register</a>
+        <a onclick="openModal('contactModal')">Contact</a>
+        <a onclick="openModal('calendarModal')">Calendar</a>
+      </nav>
     </div>
-  </div>
-    <nav>
-    <a href="#home" onclick="showSection('home')">Home</a>
-    <a href="#events" onclick="showSection('events')">Events</a>
-    <a href="#register" onclick="showSection('register')">Register</a>
-</nav>
-    
-    <!-- Events Section --> 
-    <section id="events" style="display:none;">
-        <h2>Upcoming Events</h2>
-        <ul class="event-list" id="event-list">
-            <li>
-                <strong>EY EDUNET 2025</strong><br />
-                Date: SEP 15-30 2025<br />
-                Venue:  TKR ENGINEERING COLLEGE ,Auditorium<br />
-                Description: FULL STACK WEB DEVELOPMENT.
-            </li>
-            <li>
-                <strong>Annual Cultural Fest</strong><br />
-                Date: Nov 5-7, 2025<br />
-                Venue:  TKR ENGUNEERING COLLEGE,Main Grounds<br />
-                Description: Celebrate with music, dance, drama, and more.
-            </li>
-            <li>
-                <strong>Sports Meet</strong><br />
-                Date: Dec 10, 2025<br />
-                Venue:  TKR ENGINEERING  COLLEGE Sports Complex<br />
-                Description: Compete in various sports events and games.
-            </li>
-        </ul>
-    </section>
+  </header>
 
-    <!-- Register Section -->
-    <section id="register" style="display:none;">
-        <h2>Event Registration</h2>
-        <form id="registrationForm" onsubmit="submitForm(event)">
-            <label for="name">Full Name</label>
-            <input type="text" id="name" name="name" placeholder="Your full name" required />
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Discover Campus Events</h1>
+    <p>Stay connected with college life. Register, participate, and have fun!</p>
 
-            <label for="roll no">Rollno</label>
-            <input type="text" name="rollno" id="" required>
-            <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" placeholder="example@mail.com" required />
+  </section>
 
-            <label for="phoneno">phone number</label>
-            <input type="number" name="phoneno" placeholder="12345">
+  <!-- Events Section -->
+  <section class="events" id="events">
+    <h2>Upcoming Events</h2>
+    <div class="event-grid">
+      <div class="event-card" onclick="alert('Register for Tech Talk 2025!')">
+        <img src="i.png" alt="Tech Talk">
+        <div class="event-card-content">
+          <h3>Tech Talk 2025</h3>
+          <p>Join top speakers in a discussion on the future of AI and ML in education.</p>
+          <button class="btn" onclick="event.stopPropagation(); alert('Register for Tech Talk 2025!')"><a href="register.html">Register</a>
+</button>
+        </div>
+      </div>
 
-            <label for="branch">branch</label>
-            <input type="text" name="branch" id="">
+      <div class="event-card" onclick="alert('Register for Cultural Fest!')">
+        <img src="image.png" alt="Cultural Fest">
+        <div class="event-card-content">
+          <h3>Cultural Fest</h3>
+          <p>Enjoy performances, exhibitions, and food from diverse cultures on campus.</p>
+          <button class="btn" onclick="event.stopPropagation(); alert('Register for Cultural Fest!')"><a href="register.html">Register</a></button>
+        </div>
+      </div>
 
-            <label for="year">year</label>
-            <input type="text" name="year" id="">
-            
+      <div class="event-card" onclick="alert('Register for 24-Hour Hackathon!')">
+        <img src="m.png" alt="Hackathon">
+        <div class="event-card-content">
+          <h3>24-Hour Hackathon</h3>
+          <p>Compete with the best developers to build solutions in just 24 hours!</p>
+          <button class="btn" onclick="event.stopPropagation(); alert('Register for 24-Hour Hackathon!')"><a href="register.html">Register</a>
+</button>
+        </div>
+      </div>
+    </div>
+  </section>
 
-            <label for="event">Select Event</label>
-            <select id="event" name="event" required>
-                <option value="" disabled selected>Select an event</option>
-                <option value="Tech Talk 2025">EY EDUNET 2025</option>
-                <option value="Annual Cultural Fest">ANNUAL CULTURAL MEET</option>
-                <option value="Sports Meet">SPORTS MEETS</option>
-                <option value="hackthon">HACKTHON</option>
-                <option value="robotics club">ROBOTICS</option>
-                <option value="traditional day">TRADITIONAL DAY</option>
-            </select>
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 CollegeEvents. All Rights Reserved.</p>
+  </footer>
 
-            <label for="comments">Additional Comments</label>
-            <textarea id="comments" name="comments" rows="4" placeholder="Any special requests or notes"></textarea>
+  <!-- Login/Register Modal -->
+  <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <span class="modal-close" onclick="closeModal('loginModal')">&times;</span>
 
-            <button type="submit">Register</button>
-        </form>
-        <div id="confirmationMessage" style="margin-top: 20px; color: green;"></div>
-    </section>
-    <a href=""></a>
-
-</div>
-
-<footer>
-    <marquee behavior="bubble" direction="left">
-    &copy; <B>@TKRCollege Event Management System</B>
-    </marquee>
-</footer>
-
-<script>
-    function showSection(sectionId) {
-        const sections = ['home', 'events', 'register'];
-        sections.forEach(id => {
-            document.getElementById(id).style.display = (id === sectionId) ? 'block' : 'none';
-        });
-    }
-
-    function submitForm(event) {
-        event.preventDefault();
-
-        const name = document.getElementById('name').value.trim();
-        const email = document.getElementById('email').value.trim();
-        const selectedEvent = document.getElementById('event').value;
-        const comments = document.getElementById('comments').value.trim();
-
-        if (!name || !email || !selectedEvent) {
-            alert('Please fill in all required fields.');
-            return;
-        }
-
-        // Here you would normally send form data to the server
-        // For demo, we just show confirmation
-
-        const message = `
-            Thank you, <strong>${name}</strong>, for registering for <strong>${selectedEvent}</strong>.<br />
-            Confirmation has been sent to <strong>${email}</strong>.
-        `;
-        
-
-        document.getElementById('confirmationMessage').innerHTML = message;
-
-        // Reset form after submission
-        document.getElementById('registrationForm').reset();
-    }
-</script>
-
-</body>
-</html>
+      <!-- Login Form -->
+      <div id="login-form">
+        <h2>Login</h2>
+        <input type="email" placeholder="Email" required />
+        <input type="password" placeholder="Password" required
+      </body>
+      </html>
