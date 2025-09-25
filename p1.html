@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>College Event Management System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background:white;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        header {
+            background: whitesmoke;
+            color: black;
+            padding: 15px 20px;
+            text-align: center;
+        ;
+        }
+        nav {
+            margin: 25px 0;
+            text-align: center;
+            background-color: #d7fd2c;
+            font-size: 25px;
+        }
+        nav a {
+            margin: 0 50px;
+            color: #0073e6;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 15px;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            box-shadow: 0 0 10px #ccc;
+            border-radius: 5px;
+        }
+        h2 {
+            color: #0073e6;
+        }
+        .event-list {
+            list-style: none;
+            padding: 0;
+        }
+        .event-list li {
+            background: #eeffe6;
+            margin-bottom: 10px;
+            padding: 15px;
+            border-radius: 4px;
+            border-left: 5px solid #0073e6;
+        }
+        form label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        form input, form select, form textarea {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        form button {
+            margin-top: 15px;
+            background: #0073e6;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        form button:hover {
+            background: #005bb5;
+        }
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            color: #888;
+            font-size: 14px;
+            padding: 15px 0;
+            border-top: 1px solid #ddd;
+        }
+    </style>
+    <style>
+        body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+    }
+    .notification-box {
+      width: 400px;
+      border: 1px solid #ccc;
+      background-color: #fffbea;
+      border-radius: 6px;
+      overflow: hidden;
+      margin: 50px auto;
+      box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+    }
+    .notification-header {
+      background-color: #ffd42a;
+      text-align: center;
+      padding: 8px;
+      font-weight: bold;
+      border-bottom: 1px solid #ccc;
+    }
+    .notification-list {
+      padding: 10px;
+    }
+    .notification-list p {
+      margin: 10px 0;
+      font-size: 14px;
+      color: #333;
+      border-bottom: 1px dashed #ddd;
+      padding-bottom: 5px;
+    }
+    .notification-list p:last-child {
+      border-bottom: none;
+    }
+    </style>
+
+
+</head>
+<body>
+
+<header>
+    
+    <h1><b>College Event Management System</b></h1>
+</header>
+
+
+
+<div class="container">
+
+    <!-- Home Section -->
+    <section id="home">
+        
+        <img src="img1.jpeg" alt="" width="900px" height="350px" align="center">
+        <h2><u>Welcome to TKR College Events</u></h2>
+        <p>Stay updated with upcoming college events and register easily for the ones you like!</p>
+    </section>
+    <div>
+    <div class="notification-box">
+    <div class="notification-header">Notifications</div>
+    <div class="notification-list">
+      <p>NOTIFICATION FOR EY EDUNET PROGRAM</p>
+      <p>NOTIFICATION FOR SPORTS MEETS</p>
+      <p>NOTIFICATION FOR HACKTHON</p>
+      <p>NOTIFICATION FOR ROBOTICS CLUB</p>
+      <p>NOTIFICATION FOR TRADITIONAL DAY</p>
+    </div>
+  </div>
+    <nav>
+    <a href="#home" onclick="showSection('home')">Home</a>
+    <a href="#events" onclick="showSection('events')">Events</a>
+    <a href="#register" onclick="showSection('register')">Register</a>
+</nav>
+    
+    <!-- Events Section --> 
+    <section id="events" style="display:none;">
+        <h2>Upcoming Events</h2>
+        <ul class="event-list" id="event-list">
+            <li>
+                <strong>EY EDUNET 2025</strong><br />
+                Date: SEP 15-30 2025<br />
+                Venue:  TKR ENGINEERING COLLEGE ,Auditorium<br />
+                Description: FULL STACK WEB DEVELOPMENT.
+            </li>
+            <li>
+                <strong>Annual Cultural Fest</strong><br />
+                Date: Nov 5-7, 2025<br />
+                Venue:  TKR ENGUNEERING COLLEGE,Main Grounds<br />
+                Description: Celebrate with music, dance, drama, and more.
+            </li>
+            <li>
+                <strong>Sports Meet</strong><br />
+                Date: Dec 10, 2025<br />
+                Venue:  TKR ENGINEERING  COLLEGE Sports Complex<br />
+                Description: Compete in various sports events and games.
+            </li>
+        </ul>
+    </section>
+
+    <!-- Register Section -->
+    <section id="register" style="display:none;">
+        <h2>Event Registration</h2>
+        <form id="registrationForm" onsubmit="submitForm(event)">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" placeholder="Your full name" required />
+
+            <label for="roll no">Rollno</label>
+            <input type="text" name="rollno" id="" required>
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="example@mail.com" required />
+
+            <label for="phoneno">phone number</label>
+            <input type="number" name="phoneno" placeholder="12345">
+
+            <label for="branch">branch</label>
+            <input type="text" name="branch" id="">
+
+            <label for="year">year</label>
+            <input type="text" name="year" id="">
+            
+
+            <label for="event">Select Event</label>
+            <select id="event" name="event" required>
+                <option value="" disabled selected>Select an event</option>
+                <option value="Tech Talk 2025">EY EDUNET 2025</option>
+                <option value="Annual Cultural Fest">ANNUAL CULTURAL MEET</option>
+                <option value="Sports Meet">SPORTS MEETS</option>
+                <option value="hackthon">HACKTHON</option>
+                <option value="robotics club">ROBOTICS</option>
+                <option value="traditional day">TRADITIONAL DAY</option>
+            </select>
+
+            <label for="comments">Additional Comments</label>
+            <textarea id="comments" name="comments" rows="4" placeholder="Any special requests or notes"></textarea>
+
+            <button type="submit">Register</button>
+        </form>
+        <div id="confirmationMessage" style="margin-top: 20px; color: green;"></div>
+    </section>
+    <a href=""></a>
+
+</div>
+
+<footer>
+    <marquee behavior="bubble" direction="left">
+    &copy; <B>@TKRCollege Event Management System</B>
+    </marquee>
+</footer>
+
+<script>
+    function showSection(sectionId) {
+        const sections = ['home', 'events', 'register'];
+        sections.forEach(id => {
+            document.getElementById(id).style.display = (id === sectionId) ? 'block' : 'none';
+        });
+    }
+
+    function submitForm(event) {
+        event.preventDefault();
+
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const selectedEvent = document.getElementById('event').value;
+        const comments = document.getElementById('comments').value.trim();
+
+        if (!name || !email || !selectedEvent) {
+            alert('Please fill in all required fields.');
+            return;
+        }
+
+        // Here you would normally send form data to the server
+        // For demo, we just show confirmation
+
+        const message = `
+            Thank you, <strong>${name}</strong>, for registering for <strong>${selectedEvent}</strong>.<br />
+            Confirmation has been sent to <strong>${email}</strong>.
+        `;
+        
+
+        document.getElementById('confirmationMessage').innerHTML = message;
+
+        // Reset form after submission
+        document.getElementById('registrationForm').reset();
+    }
+</script>
+
+</body>
+</html>

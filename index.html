@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>College Event Management</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>College Event Management System</h1>
+    <nav>
+      <ul>
+        <li><a href="#events">Events</a></li>
+        <li><a href="#register">Register</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="events">
+    <h2>Upcoming Events</h2>
+    <div class="event-list">
+      <div class="event-card">
+        <h3>Tech Fest 2025</h3>
+        <p>Date: Oct 10, 2025</p>
+        <p>Location: Auditorium</p>
+      </div>
+      <div class="event-card">
+        <h3>Art Exhibition</h3>
+        <p>Date: Oct 15, 2025</p>
+        <p>Location: Gallery Hall</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="register">
+    <h2>Register for an Event</h2>
+    <form id="registrationForm">
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <select required>
+        <option value="">Select Event</option>
+        <option value="techfest">Tech Fest 2025</option>
+        <option value="art">Art Exhibition</option>
+      </select>
+      <button type="submit">Register</button>
+    </form>
+    <p id="confirmationMessage"></p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 College Event Management</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
